@@ -1,0 +1,52 @@
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+const NODE_ENV: string = process.env.NODE_ENV;
+
+const PORT: number = +process.env.SERVER_PORT;
+
+const SECRET_JWT = process.env.SECRET_JWT;
+
+const MONGO_USER = process.env.DATABASE_USERNAME;
+const MONGO_PASS = process.env.DATABASE_PASSWORD;
+const MONGO_HOST = process.env.DATABASE_HOST;
+const MONGO_DATABASE = process.env.DATABASE_NAME;
+const MONGO_PORT = process.env.DATABASE_PORT;
+const MONGO_URL =
+  process.env.MONGO_URL ||
+  `mongodb://${MONGO_USER}:${MONGO_PASS}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DATABASE}?retryWrites=true&w=majority`;
+
+const API_URL = process.env.API_URL;
+const API_CLIENT_ID = process.env.API_CLIENT_ID;
+const API_ACCESS_TOKEN = process.env.API_ACCESS_TOKEN;
+
+const KEYCLOAK_LOGIN_URI = process.env.KEYCLOAK_LOGIN_URI;
+const KEYCLOAK_RESPONSE_TYPE = process.env.KEYCLOAK_RESPONSE_TYPE;
+const KEYCLOAK_SCOPE = process.env.KEYCLOAK_SCOPE;
+const KEYCLOAK_REDIRECT_URI = process.env.KEYCLOAK_REDIRECT_URI;
+const KEYCLOAK_CLIENT_ID = process.env.KEYCLOAK_CLIENT_ID; 
+const KEYCLOAK_CLIENT_SECRET = process.env.KEYCLOAK_CLIENT_SECRET;
+const KEYCLOAK_TOKEN_URI = process.env.KEYCLOAK_TOKEN_URI;
+const KEYCLOAK_LOGOUT_URI = process.env.KEYCLOAK_LOGOUT_URI;
+const KEYCLOAK_AUTH_URI = process.env.KEYCLOAK_AUTH_URI;
+const KEYCLOAK_REALM = process.env.KEYCLOAK_REALM;
+
+export {
+  NODE_ENV,
+  PORT,
+  MONGO_URL,
+  SECRET_JWT,
+  API_URL,
+  API_CLIENT_ID,
+  API_ACCESS_TOKEN,
+  KEYCLOAK_LOGIN_URI,
+  KEYCLOAK_RESPONSE_TYPE,
+  KEYCLOAK_SCOPE,
+  KEYCLOAK_REDIRECT_URI,
+  KEYCLOAK_CLIENT_ID,
+  KEYCLOAK_CLIENT_SECRET,
+  KEYCLOAK_TOKEN_URI,
+  KEYCLOAK_LOGOUT_URI,
+  KEYCLOAK_AUTH_URI,
+  KEYCLOAK_REALM,
+};

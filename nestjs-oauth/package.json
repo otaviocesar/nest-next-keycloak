@@ -1,0 +1,105 @@
+{
+  "name": "nestjs-oauth",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:docker": "docker-compose up --build nestjs-node",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "precommit": "lint-staged && npm run lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:integration": "jest --config ./test/integration/jest.json"
+  },
+  "dependencies": {
+    "@nestjs/axios": "0.0.7",
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^2.2.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/jwt": "^8.0.0",
+    "@nestjs/mongoose": "^9.0.3",
+    "@nestjs/passport": "^8.2.1",
+    "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/swagger": "^5.2.1",
+    "bcryptjs": "^2.4.3",
+    "brazilian-class-validator": "^0.1.6",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9",
+    "nest-keycloak-connect": "^1.4.2",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "querystring": "^0.2.1",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.2.0",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@nestjs/cli": "^8.0.0",
+    "@nestjs/schematics": "^8.0.0",
+    "@nestjs/testing": "^8.0.0",
+    "@types/express": "^4.17.13",
+    "@types/jest": "27.4.1",
+    "@types/node": "^16.0.0",
+    "@types/passport-local": "^1.0.34",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "jest": "^27.2.5",
+    "lint-staged": "^12.4.2",
+    "prettier": "^2.3.2",
+    "source-map-support": "^0.5.20",
+    "supertest": "^6.1.3",
+    "testcontainers": "^8.7.0",
+    "ts-jest": "^27.0.3",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "./",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
+}

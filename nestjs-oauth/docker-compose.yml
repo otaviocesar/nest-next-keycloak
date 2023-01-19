@@ -1,0 +1,29 @@
+version: "3.7"
+ 
+services:
+  nestjs-node:
+    container_name: node-server
+    build:
+        context: .
+        target: development
+        dockerfile: Dockerfile-dev
+        args:
+          - NODE_ENV=${NODE_ENV}  
+    environment:
+      SERVICE_DB_HOST: ${DATABASE_HOST}:${DATABASE_PORT}
+      SERVICE_DB_USER: ${DATABASE_USERNAME}
+      SERVICE_DB_PASSWORD: ${DATABASE_PASSWORD}          
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    tty: true   
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules    
+    restart: unless-stopped
+    command: npm run start:dev
+    networks:
+      - nesjs-network
+
+networks: 
+    nesjs-network:
+      driver: bridge  
